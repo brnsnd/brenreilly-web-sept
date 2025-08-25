@@ -316,7 +316,7 @@ p {
 }
 
 code, pre {
-  font-family: BrennanMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 footer.site-footer {
@@ -905,5 +905,25 @@ footer.site-footer {
 .resume-download-container a:focus {
 	outline: 2px solid var(--border);
 	outline-offset: 2px;
+}
+
+/* Footer styling */
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.font-attribution {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  opacity: 0.8;
 }
 
