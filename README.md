@@ -1,43 +1,97 @@
-# Astro Starter Kit: Minimal
+# Brennan Reilly — Professional Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A clean, accessible website for Brennan Reilly, live sound engineer & designer.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## 🚀 Quick Start
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command             | Action                                    |
+| :------------------ | :---------------------------------------- |
+| `npm install`       | Installs dependencies                     |
+| `npm run dev`       | Starts local dev server at `localhost:4321` |
+| `npm run build`     | Build your production site to `./dist/`   |
+| `npm run preview`   | Preview your build locally                |
 
-## 👀 Want to learn more?
+## 🏗️ Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+├── content/          # Markdown content (resume)
+├── layouts/          # Page layouts
+├── pages/            # Route pages
+└── styles/           # Global CSS
+public/
+├── fonts/            # Custom fonts
+├── resume/           # Resume assets
+└── favicon.svg       # Site icon
+```
+
+## 🎨 Design System
+
+- **Typography**: Custom fonts with fallbacks
+- **Layout**: Brutalist design with clean blocks
+- **Colors**: High contrast black/white theme
+- **Accessibility**: WCAG compliant with focus management
+
+## 📱 Features
+
+- Responsive design
+- Accessible navigation
+- SEO optimized
+- Social media meta tags
+- Interactive resume sections
+- Portfolio placeholders
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+The built site will be in the `./dist/` directory, ready for deployment.
+
+### Deploy to Netlify
+1. Connect your repository
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+
+### Deploy to Vercel
+1. Connect your repository
+2. Framework preset: Astro
+3. Build command: `npm run build`
+4. Output directory: `dist`
+
+## 🔧 Customization
+
+### Fonts
+- Place custom font files in `public/fonts/`
+- Update `@font-face` declarations in `src/styles/global.css`
+
+### Resume
+- Put your PDF at `public/resume/Brennan-Reilly-Resume.pdf`
+- Update the image at `public/resume/Reilly-Brennan-Resume.png`
+
+### Content
+- Edit page content in `src/pages/`
+- Update resume data in `src/content/resume.md`
+
+## 📊 Performance
+
+- Font preloading for faster rendering
+- Optimized images and assets
+- Minimal JavaScript
+- Efficient CSS with CSS custom properties
+
+## ♿ Accessibility
+
+- Skip navigation links
+- Proper ARIA labels
+- Keyboard navigation support
+- High contrast design
+- Screen reader friendly
+
+## 📄 License
+
+MIT License - see LICENSE file for details.

@@ -1,16 +1,50 @@
 ---
-
+import Home from "../layouts/Home.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Home page="Home">
+	<div class="home-container">
+		<nav class="home-nav" role="navigation" aria-label="Main navigation">
+			<a href="/" aria-label="Go to Brennan Reilly's homepage" tabindex="0">
+				<div class="block invert home-brand">
+					<h1>Brennan Reilly</h1>
+				</div>
+			</a>
+
+			<a href="/about" aria-label="Learn more about Brennan Reilly" tabindex="0">
+				<div class="block home-nav-item">
+					<h3>About</h3>
+				</div>
+			</a>
+
+			<a href="/resume" aria-label="View Brennan Reilly's work and resume" tabindex="0">
+				<div class="block home-nav-item">
+					<h3>My Work</h3>
+				</div>
+			</a>
+
+			<a href="/contact" aria-label="Contact Brennan Reilly" tabindex="0">
+				<div class="block home-nav-item">
+					<h3>Contact</h3>
+				</div>
+			</a>
+		</nav>
+	</div>
+	
+	<script>
+		// Enhanced keyboard accessibility for home navigation
+		document.addEventListener('DOMContentLoaded', function() {
+			const homeNavLinks = document.querySelectorAll('.home-nav a');
+			
+			homeNavLinks.forEach(link => {
+				link.addEventListener('keydown', function(e: Event) {
+					const keyEvent = e as KeyboardEvent;
+					if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+						e.preventDefault();
+						window.location.href = (e.currentTarget as HTMLAnchorElement).href;
+					}
+				});
+			});
+		});
+	</script>
+</Home>

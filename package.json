@@ -1,7 +1,10 @@
 {
-  "name": "opposite-orbit",
+  "name": "brenreilly-web",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Brennan Reilly's professional website - Live sound engineer & designer",
+  "author": "Brennan Reilly",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.3"
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.13.3",
+    "typescript": "^5.9.2"
   }
 }

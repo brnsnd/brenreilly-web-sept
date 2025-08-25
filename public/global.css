@@ -1,0 +1,909 @@
+:root {
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: #cfcfcf;
+  --accent: #ffffff;
+  --border: #ffffff;
+  --maxw: 1100px;
+}
+
+/* Font System - Clean and Simple */
+
+/* Font-Body: Main text font (paragraphs, body content) */
+@font-face {
+  font-family: "Font-Body";
+  src: url("/fonts/body-font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font-Special: Special text font (headings, titles, accents) */
+@font-face {
+  font-family: "Font-Special";
+  src: url("/fonts/special-font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  /* Debug: check for unwanted borders/outlines */
+  outline: none;
+  border: none;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Font-Body", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
+  font-weight: 400;
+  /* Debug: check for unwanted borders/outlines */
+  outline: none;
+  border: none;
+}
+
+/* Typography Scale */
+h1 {
+  font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 2.5rem; /* 40px */
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 2rem; /* 32px */
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+/* Body text */
+p, div, span, a, li {
+  font-family: "Font-Body", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Small text */
+.small, small {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Font Utility Classes */
+.font-body {
+  font-family: "Font-Body", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.font-special {
+  font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Focus styles for accessibility - subtle and elegant */
+a:focus, .gigs-content:focus, .portfolio-content:focus {
+  outline: 2px solid var(--border) !important;
+  outline-offset: 2px !important;
+}
+
+/* Ensure focus is visible even with custom styles */
+a:focus-visible, button:focus-visible {
+  outline: 0.25px solid var(--border) !important;
+  outline-offset: 1px !important;
+  animation: focus-outline-pulse 2s ease-in-out infinite;
+}
+
+
+
+/* Enhanced focus styles for interactive elements */
+.nav a:focus,
+.home-nav a:focus {
+  outline: 2px solid var(--border) !important;
+  outline-offset: 2px !important;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Focus styles for dropdown content - consistent with other focus styles */
+.gigs-content:focus,
+.portfolio-content:focus {
+  outline: 2px solid var(--border) !important;
+  outline-offset: 2px !important;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Ensure sufficient color contrast for text */
+.muted {
+  color: var(--muted);
+  /* Ensure sufficient contrast for accessibility */
+}
+
+/* Focus management for better keyboard navigation */
+a:focus-visible {
+  outline: 2px solid var(--border) !important;
+  outline-offset: 2px !important;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--border);
+  color: var(--bg);
+  padding: 8px;
+  text-decoration: none;
+  /* Removed border to eliminate white line */
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Button styling to maintain design */
+.gigs-content, .portfolio-content {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Remove button styling from close buttons to maintain design */
+.gigs-close, .portfolio-close {
+  background: var(--border);
+  color: var(--bg);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: none;
+  z-index: 10;
+  font-family: inherit;
+}
+
+/* Layout */
+.site-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  /* Debug: check for unwanted borders/outlines */
+  outline: none;
+  border: none;
+}
+
+header.site-header {
+  border-bottom: 2px solid var(--border);
+  /* Debug: check for unwanted borders/outlines */
+  outline: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.nav {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.nav a.brand {
+  border: 2px solid var(--border);
+  padding: 6px 10px;
+  letter-spacing: 0.02em;
+}
+
+.nav ul {
+  display: flex;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav a {
+  border: 2px solid var(--border);
+  padding: 6px 10px;
+}
+
+main.site-main {
+  padding: 24px 16px 56px;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* Brutalist blocks */
+.block {
+  border: 2px solid var(--border);
+  padding: 18px;
+  margin: 0 0 16px 0;
+  background: transparent;
+  box-shadow: 6px 6px 0 0 var(--border);
+}
+
+/* Utility: remove or reduce inner padding on blocks */
+.block.tight { padding: 10px; }
+
+.block.invert {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 800px) {
+  .grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+h1, h2, h3 {
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+code, pre {
+  font-family: BrennanMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+footer.site-footer {
+  border-top: 2px solid var(--border);
+}
+
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.muted { color: var(--muted); }
+
+/* Utility: Center content with a max width */
+.narrow {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Consistent table sizing inside content blocks */
+.block table {
+  width: 100%;
+  table-layout: fixed; /* consistent widths across tables */
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block table thead th,
+.block table td {
+  word-break: normal;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bold and underline for table headers */
+.block table thead th {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Add spacing below content above tables for better visual separation */
+.block h2 {
+  margin-bottom: 30px;
+}
+
+.block p {
+  margin-bottom: 20px;
+}
+
+/* Consistent 4-column layout across all tables */
+.block table thead th:nth-child(1),
+.block table tbody td:nth-child(1) { width: 52%; } /* Production - increased to 52% for full legibility */
+.block table thead th:nth-child(2),
+.block table tbody td:nth-child(2) { width: 25%; } /* Company - reduced from 28% */
+.block table thead th:nth-child(3),
+.block table tbody td:nth-child(3) { width: 13%; } /* Position - reduced from 15% */
+.block table thead th:nth-child(4),
+.block table tbody td:nth-child(4) { width: 10%; white-space: nowrap; } /* Dates - reduced to 10% */
+
+/* Override the reset-tables for consistent formatting */
+.markdown.reset-tables table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border: 2px solid var(--border) !important;
+}
+
+/* Add spacing above the first table in resume sections */
+.markdown.reset-tables h3 {
+  margin-top: 40px !important;
+}
+
+.markdown.reset-tables h3:first-of-type {
+  margin-top: 20px !important;
+}
+
+.markdown.reset-tables thead th,
+.markdown.reset-tables th,
+.markdown.reset-tables td {
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  padding: 10px 12px !important;
+  border: none !important;
+}
+
+/* Apply column widths to reset-tables */
+.markdown.reset-tables table thead th:nth-child(1),
+.markdown.reset-tables table tbody td:nth-child(1) { width: 30% !important; }
+.markdown.reset-tables table thead th:nth-child(2),
+.markdown.reset-tables table tbody td:nth-child(2) { width: 25% !important; }
+.markdown.reset-tables table thead th:nth-child(3),
+.markdown.reset-tables table tbody td:nth-child(3) { width: 20% !important; }
+.markdown.reset-tables table thead th:nth-child(4),
+.markdown.reset-tables table tbody td:nth-child(4) { width: 15% !important; }
+
+/* Clean table borders - just solid outer border, no internal borders */
+.markdown.reset-tables table {
+  border: 2px solid var(--border) !important;
+}
+
+.markdown.reset-tables thead th,
+.markdown.reset-tables th,
+.markdown.reset-tables td {
+  border: none !important;
+}
+
+/* Centered markdown variant */
+.markdown.center {
+  text-align: center;
+}
+
+.markdown.center table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markdown.center table th { text-align: center; }
+.markdown.center table td { text-align: left; }
+
+/* Resume image styling */
+.resume-image {
+  width: 80%;
+  height: 450px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  object-fit: cover;
+  object-position: top;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block; /* Force block display for Firefox */
+  filter: grayscale(1) invert(1); /* Grayscale then invert for black/white inverted look */
+  transition: all 0.2s ease;
+}
+
+.resume-image:focus {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+/* Firefox-specific fix for centering */
+@supports (-moz-appearance: none) {
+  .resume-image-container {
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* Container for resume image with gradient overlay */
+.resume-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.resume-image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* Resume dropdown styling */
+.gigs-dropdown {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gigs-dropdown:focus {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.gigs-content {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out;
+  background: var(--bg);
+  position: relative;
+  cursor: pointer;
+}
+
+.gigs-dropdown.expanded .gigs-content {
+  max-height: 5000px;
+}
+
+/* Gradient overlay for cropped content */
+.gigs-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.gigs-dropdown.expanded .gigs-content::after {
+  opacity: 0;
+}
+
+/* Toggle button container - positioned absolutely */
+.gigs-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  z-index: 20;
+}
+
+/* Arrow indicator */
+.gigs-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--border);
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+
+.gigs-dropdown:hover .gigs-indicator {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gigs-dropdown.expanded .gigs-indicator {
+  opacity: 0;
+}
+
+/* Close button */
+.gigs-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  color: var(--border);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  border-radius: 50%;
+  outline: none;
+}
+
+.gigs-close:focus {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.gigs-dropdown.expanded .gigs-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gigs-dropdown.expanded .gigs-close {
+  display: flex;
+}
+
+/* Portfolio styling */
+.portfolio-grid {
+  display: grid;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.portfolio-section h3 {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-items {
+  display: grid;
+  gap: 20px;
+}
+
+.portfolio-item {
+  border: 2px solid var(--border);
+  padding: 20px;
+  background: var(--bg);
+  transition: all 0.2s ease;
+}
+
+.portfolio-item:hover {
+  background: var(--border);
+  color: var(--bg);
+}
+
+.portfolio-item:focus-within {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.portfolio-placeholder {
+  text-align: center;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-placeholder p {
+  margin: 5px 0;
+}
+
+.portfolio-note {
+  font-size: 0.9em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Audio items - wider for SoundCloud embeds */
+.audio-item {
+  min-height: 200px;
+}
+
+/* Visual items - square-ish for images/videos */
+.visual-item {
+  min-height: 200px;
+}
+
+/* Project items - compact for text */
+.project-item {
+  min-height: 100px;
+}
+
+/* Responsive grid adjustments */
+@media (min-width: 768px) {
+  .portfolio-items {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Portfolio dropdown styling */
+.portfolio-dropdown {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.portfolio-dropdown:focus {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.portfolio-content {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out;
+  background: var(--bg);
+  position: relative;
+  cursor: pointer;
+}
+
+.portfolio-dropdown.expanded .portfolio-content {
+  max-height: 5000px;
+}
+
+/* Gradient overlay for cropped content */
+.portfolio-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.portfolio-dropdown.expanded .portfolio-content::after {
+  opacity: 0;
+}
+
+/* Toggle button container - positioned absolutely */
+.portfolio-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  z-index: 20;
+}
+
+/* Arrow indicator */
+.portfolio-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--border);
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+
+.portfolio-dropdown:hover .portfolio-indicator {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-dropdown.expanded .portfolio-indicator {
+  opacity: 0;
+}
+
+/* Close button */
+.portfolio-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  color: var(--border);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  border-radius: 50%;
+  outline: none;
+}
+
+.portfolio-close:focus {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.portfolio-dropdown.expanded .portfolio-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-dropdown.expanded .portfolio-close {
+  display: flex;
+}
+
+/* Navigation link hover effects - only for home page nav blocks */
+.home-nav .block {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.home-nav .block:hover {
+  background: var(--border) !important;
+  color: var(--bg) !important;
+}
+
+.home-nav .block:hover a {
+  color: var(--bg) !important;
+}
+
+/* Invert blocks on hover - only for home page nav blocks */
+.home-nav .block.invert:hover {
+  background: var(--bg) !important;
+  color: var(--border) !important;
+}
+
+.home-nav .block.invert:hover a {
+  color: var(--border) !important;
+}
+
+/* Focus styles for home navigation blocks */
+.home-nav .block:focus-within {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.home-nav .block:focus-within a {
+  outline: none;
+}
+
+/* Header navigation hover effects */
+.nav a {
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background: var(--fg) !important;
+  color: var(--bg) !important;
+}
+
+.nav .brand:hover {
+  background: var(--fg) !important;
+  color: var(--bg) !important;
+}
+
+/* Home page specific styles */
+.home-page-wrapper {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+}
+
+.home-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+.home-brand {
+	width: 400px;
+	margin: 0;
+}
+
+.home-nav-item {
+	width: 400px;
+	margin: 0;
+}
+
+.home-nav-item:last-child {
+	margin-bottom: 0;
+}
+
+/* Resume download container */
+.resume-download-container {
+	text-align: center;
+}
+
+.resume-download-container a:focus {
+	outline: 2px solid var(--border);
+	outline-offset: 2px;
+}
+

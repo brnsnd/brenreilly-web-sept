@@ -1,0 +1,205 @@
+---
+import Base from "../layouts/Base.astro";
+import ResumeMarkdown from "../content/resume.md";
+---
+
+<Base page="My Work">
+	<section class="grid" aria-labelledby="work-heading">
+		<div class="block invert">
+			<h1 id="work-heading">My Work</h1>
+			<p>I have two resumes on this page. The first is a PDF that you can download overviewing selections of my most recent work. The second is more all-encompassing and includes a more detailed work history.</p>
+		</div>
+		<div class="block">
+			<h2>Resume</h2>
+			<div class="resume-download-container">
+				<a 
+					href="/resume/Reilly-Brennan-Resume.pdf" 
+					target="_blank"
+					aria-label="Download Brennan Reilly's resume as PDF (opens in new tab)">
+					<div class="resume-image-container">
+						<img 
+							src="/resume/Reilly-Brennan-Resume.png" 
+							alt="Preview of Brennan Reilly's professional resume showing work experience and skills" 
+							class="resume-image" />
+					</div>
+					<span class="sr-only">Click to download resume PDF</span>
+				</a>
+			</div>
+		</div>
+		<div 
+			class="block no-pad gigs-dropdown" 
+			role="button"
+			tabindex="0"
+			aria-expanded="false"
+			aria-controls="gigs-content"
+			aria-label="Click to expand gigs and work history section">
+			<h2>Gigs</h2>
+			<div class="gigs-content" id="gigs-content">
+				<div class="markdown center reset-tables" aria-live="polite">
+					<ResumeMarkdown />
+				</div>
+			</div>
+			<div class="gigs-toggle">
+				<div class="gigs-indicator" aria-hidden="true">↓</div>
+				<button 
+					class="gigs-close" 
+					aria-label="Close gigs section">↑</button>
+			</div>
+		</div>
+		<div 
+			class="block no-pad portfolio-dropdown" 
+			role="button"
+			tabindex="0"
+			aria-expanded="false"
+			aria-controls="portfolio-content"
+			aria-label="Click to expand portfolio section">
+			<h2>Portfolio</h2>
+			<p>Portfolio section coming soon!</p>
+			<div class="portfolio-content" id="portfolio-content">
+				<div class="portfolio-grid" aria-live="polite">
+					<!-- Audio Section -->
+					<!--
+					<div class="portfolio-section">
+						<h3>Audio</h3>
+						<div class="portfolio-items">
+							<div class="portfolio-item audio-item">
+								<div class="portfolio-placeholder">
+									<p>SoundCloud Playlist 1</p>
+									<p class="portfolio-note">[Embed will go here]</p>
+								</div>
+							</div>
+							<div class="portfolio-item audio-item">
+								<div class="portfolio-placeholder">
+									<p>SoundCloud Playlist 2</p>
+									<p class="portfolio-note">[Embed will go here]</p>
+								</div>
+							</div>
+						</div>
+					</div>
+ 					-->
+					<!-- Visual Section -->
+					<!--
+					<div class="portfolio-section">
+						<h3>Visual</h3>
+						<div class="portfolio-items">
+							<div class="portfolio-item visual-item">
+								<div class="portfolio-placeholder">
+									<p>Project Image 1</p>
+									<p class="portfolio-note">[Image will go here]</p>
+								</div>
+							</div>
+							<div class="portfolio-item visual-item">
+								<div class="portfolio-placeholder">
+									<p>Project Video 1</p>
+									<p class="portfolio-note">[Video will go here]</p>
+								</div>
+							</div>
+							<div class="portfolio-item visual-item">
+								<div class="portfolio-placeholder">
+									<p>Project Image 2</p>
+									<p class="portfolio-note">[Image will go here]</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					-->
+					<!-- Projects Section -->
+					<!--
+					<div class="portfolio-section">
+						<h3>Projects</h3>
+						<div class="portfolio-items">
+							<div class="portfolio-item project-item">
+								<div class="portfolio-placeholder">
+									<p><strong>Production Name</strong></p>
+									<p class="portfolio-note">Brief description of role and scope</p>
+								</div>
+							</div>
+							<div class="portfolio-item project-item">
+								<div class="portfolio-placeholder">
+									<p><strong>Festival Name</strong></p>
+									<p class="portfolio-note">Brief description of role and scope</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					-->
+				</div>
+			</div>
+			<div class="portfolio-toggle">
+				<div class="portfolio-indicator" aria-hidden="true">↓</div>
+				<button 
+					class="portfolio-close" 
+					aria-label="Close portfolio section">↑</button>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		// Enhanced accessibility for dropdowns
+		document.addEventListener('DOMContentLoaded', function() {
+			// Handle gigs dropdown
+			const gigsDropdown = document.querySelector('.gigs-dropdown') as HTMLElement;
+			const gigsClose = gigsDropdown?.querySelector('.gigs-close') as HTMLButtonElement;
+			
+			if (gigsDropdown && gigsClose) {
+				// Add click handler for expanding
+				gigsDropdown.addEventListener('click', (e: Event) => {
+					if (e.target !== gigsClose) {
+						gigsDropdown.classList.add('expanded');
+						gigsDropdown.setAttribute('aria-expanded', 'true');
+					}
+				});
+				
+				// Add keyboard handler for expanding
+				gigsDropdown.addEventListener('keydown', (e: KeyboardEvent) => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						gigsDropdown.classList.add('expanded');
+						gigsDropdown.setAttribute('aria-expanded', 'true');
+					}
+				});
+				
+				// Update aria-expanded when closing
+				gigsClose.addEventListener('click', (e: Event) => {
+					e.stopPropagation();
+					gigsDropdown.classList.remove('expanded');
+					gigsDropdown.setAttribute('aria-expanded', 'false');
+					// Return focus to the main dropdown for better keyboard navigation
+					gigsDropdown.focus();
+				});
+			}
+			
+			// Handle portfolio dropdown
+			const portfolioDropdown = document.querySelector('.portfolio-dropdown') as HTMLElement;
+			const portfolioClose = portfolioDropdown?.querySelector('.portfolio-close') as HTMLButtonElement;
+			
+			if (portfolioDropdown && portfolioClose) {
+				// Add click handler for expanding
+				portfolioDropdown.addEventListener('click', (e: Event) => {
+					if (e.target !== portfolioClose) {
+						portfolioDropdown.classList.add('expanded');
+						portfolioDropdown.setAttribute('aria-expanded', 'true');
+					}
+				});
+				
+				// Add keyboard handler for expanding
+				portfolioDropdown.addEventListener('keydown', (e: KeyboardEvent) => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						portfolioDropdown.classList.add('expanded');
+						portfolioDropdown.setAttribute('aria-expanded', 'true');
+					}
+				});
+				
+				// Update aria-expanded when closing
+				portfolioClose.addEventListener('click', (e: Event) => {
+					e.stopPropagation();
+					portfolioDropdown.classList.remove('expanded');
+					portfolioDropdown.setAttribute('aria-expanded', 'false');
+					// Return focus to the main dropdown for better keyboard navigation
+					portfolioDropdown.focus();
+				});
+			}
+		});
+	</script>
+</Base>
