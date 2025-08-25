@@ -924,6 +924,9 @@ footer.site-footer {
 .footer-links {
   margin-top: 0.5rem;
   font-size: 0.875rem;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
 .footer-links a {
