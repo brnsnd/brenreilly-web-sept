@@ -940,3 +940,79 @@ footer.site-footer {
   text-decoration: underline;
 }
 
+/* Sitemap page styles */
+.sitemap-container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.sitemap-container h1 {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.sitemap-section {
+	margin-bottom: 3rem;
+}
+
+.sitemap-section h2 {
+	margin-bottom: 1.5rem;
+	border-bottom: 2px solid var(--border);
+	padding-bottom: 0.5rem;
+}
+
+.sitemap-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 600px) {
+	.sitemap-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.sitemap-item {
+	border: 2px solid var(--border);
+	background: transparent;
+	transition: all 0.2s ease;
+}
+
+.sitemap-item:hover {
+	background: var(--fg);
+	color: var(--bg);
+	transform: translate(-2px, -2px);
+	box-shadow: 4px 4px 0 0 var(--border);
+}
+
+.sitemap-link {
+	display: block;
+	padding: 1.5rem;
+	text-decoration: none;
+	color: inherit;
+}
+
+.sitemap-link:hover {
+	text-decoration: none;
+}
+
+.link-title {
+	display: block;
+	font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	font-size: 1.25rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+.link-desc {
+	display: block;
+	font-size: 0.875rem;
+	color: var(--muted);
+	line-height: 1.4;
+}
+
+.sitemap-item:hover .link-desc {
+	color: var(--bg);
+}
+
