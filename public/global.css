@@ -921,9 +921,19 @@ footer.site-footer {
   padding: 0 2rem;
 }
 
-.font-attribution {
+.footer-links {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  opacity: 0.8;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
