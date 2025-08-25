@@ -327,9 +327,13 @@ footer.site-footer {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 16px;
+}
+
+.footer-links {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 2rem;
+  align-items: center;
 }
 
 .muted { color: var(--muted); }
@@ -907,28 +911,7 @@ footer.site-footer {
 	outline-offset: 2px;
 }
 
-/* Footer styling */
-.site-footer {
-  margin-top: 4rem;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-
-.footer-inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.footer-links {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+/* Footer link styling */
 .footer-links a {
   color: var(--muted);
   text-decoration: none;
