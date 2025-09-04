@@ -9,6 +9,8 @@
 ### Audio Engineering
 | **Production**                               | **Company**                  | **Position**           | **Dates**        |
 | -------------------------------------------- | ---------------------------- | ---------------------- | ---------------- |
+| *Wake Forest Class of 2029 Convocation*      | Wake Forest University       | FOH Audio              | Aug '25          |
+| *Carnatic Music Arangetram*                    | Wake Forest University        | FOH Audio               | Jul '25
 | *Secrest Artist Series presents Tonality*    | Wake Forest University       | FOH Audio              | Jan '25          |
 | *Camel City Jazz 2024 Christmas Concert*     | UNCSA Performance Facilities | FOH Audio              | Dec '24          |
 | *The Dickens at SMCM Alumni Weekend*         | Sam Hill Entertainment       | FOH Audio              | Jun '24          |
