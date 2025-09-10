@@ -1,4 +1,4 @@
-### Touring
+### Touring Experience
 | **Production**                  | **Company**           | **Position**     | **Dates**        |
 | -------------------------------- | --------------------- | ---------------- | ---------------- |
 | *Sesame Street Live! Say Hello*  | Round Room Live       | A1               | Feb '25 – Jun '25 |
@@ -6,7 +6,7 @@
 | *Canvas Sky*                     | Hideaway Circus       | Interim PM       | Jul '24 – Aug '24 |
 | *Paw Patrol Live! Hero’s Unite*  | VStar Entertainment   | Head AV Tech     | Jul '23 – May '24 |
 
-### Audio Engineering
+### Audio Engineering Experience
 | **Production**                               | **Company**                  | **Position**           | **Dates**        |
 | -------------------------------------------- | ---------------------------- | ---------------------- | ---------------- |
 | *Secrest Artist Series presents Tonality*    | Wake Forest University       | FOH Audio              | Jan '25          |
@@ -35,7 +35,7 @@
 | *Footloose Jr.*                              | Forsyth Country Day School   | FOH Audio / A1         | Feb '22          |
 | *Fall Dance*                                 | UNCSA School of Dance        | FOH Audio              | Oct '21          |
 
-### Sound Design
+### Sound Design Experience
 | **Production**                                  | **Company**                   | **Position**              | **Dates**         |
 | ----------------------------------------------- | ----------------------------- | ------------------------- | ----------------- |
 | *The Lab*                                       | Dose Artist Collective        | Sound Designer            | Oct '22 – May '23 |
@@ -49,7 +49,7 @@
 | *The Addams Family*                             | Holly Springs Theatre Company | Sound Designer            | Mar '19           |
 | *Treasure Island*                               | Holly Springs Theatre Company | Sound Designer & Composer | Dec '19           |
 
-### Management & Logistics
+### Management & Logistics Experience
 | **Production**             | **Company**                    | **Position**           | **Dates**        |
 | -------------------------- | ------------------------------ | ---------------------- | ---------------- |
 | *Canvas Sky*               | Hideaway Circus                | Interim PM             | Jul '24 – Aug '24 |

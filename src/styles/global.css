@@ -97,7 +97,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Font Utility Classes */
@@ -293,6 +293,14 @@ main.site-main {
 .block.invert {
   background: var(--fg);
   color: var(--bg);
+}
+
+.block.invert h1,
+.block.invert h2,
+.block.invert h3,
+.block.invert p,
+.block.invert a {
+  color: var(--bg) !important;
 }
 
 .grid {
