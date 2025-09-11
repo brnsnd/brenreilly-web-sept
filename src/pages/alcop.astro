@@ -3,21 +3,132 @@ import Base from "../layouts/Base.astro";
 import ALCOPMarkdown from "../content/alcop.md";
 ---
 
-<Base page="About">
-	<section class="grid" aria-labelledby="about-heading">
-		<div>
-			<h1 id="about-heading">ALCOP Project Page</h1>
-			<h2>Media</h2>
-			<p id="about-heading"> 
-				<a href="https://www.dropbox.com/scl/fo/4yrbhdhaqj5u4sjkm6mpx/ACQTaERq4UVMX1N8fhb0QCM?rlkey=wflf9qyw5w11ggygzdlf5rto8&st=pov0x7ug&dl=0" target="_blank" rel="noopener noreferrer">
-					Links to media files
-					</a>
-			</p>
-		</div>
+<Base page="ALCOP">
+	<div id="password-protection" class="password-container">
 		<div class="block">
-			<ALCOPMarkdown />
+			<h1>ALCOP Project - Protected Content</h1>
+			<p>This page contains sensitive project information. Please enter the password to continue.</p>
+			<form id="password-form">
+				<input type="password" id="password-input" placeholder="Enter password" required>
+				<button type="submit">Access Content</button>
+			</form>
+			<div id="error-message" class="error-message" style="display: none;">
+				Incorrect password. Please try again.
+			</div>
 		</div>
-	</section>
+	</div>
+
+	<div id="protected-content" class="protected-content" style="display: none;">
+		<section class="grid" aria-labelledby="about-heading">
+			<div class="block">
+				<h1 id="about-heading">ALCOP Project Page</h1>
+				<h2>Media</h2>
+				<p id="about-heading"> 
+					<a href="https://www.dropbox.com/scl/fo/4yrbhdhaqj5u4sjkm6mpx/ACQTaERq4UVMX1N8fhb0QCM?rlkey=wflf9qyw5w11ggygzdlf5rto8&st=pov0x7ug&dl=0" target="_blank" rel="noopener noreferrer">
+						Links to media files
+					</a>
+				</p>
+			</div>
+			<div class="block">
+				<ALCOPMarkdown />
+			</div>
+		</section>
+	</div>
+
+	<style>
+		.password-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 60vh;
+		}
+		
+		.password-container .block {
+			max-width: 400px;
+			text-align: center;
+		}
+		
+		#password-form {
+			margin: 20px 0;
+		}
+		
+		#password-form input {
+			width: 100%;
+			padding: 10px;
+			margin: 10px 0;
+			border: 2px solid var(--border);
+			background: var(--bg);
+			color: var(--fg);
+			font-family: inherit;
+		}
+		
+		#password-form button {
+			width: 100%;
+			padding: 10px;
+			border: 2px solid var(--border);
+			background: var(--bg);
+			color: var(--fg);
+			cursor: pointer;
+			font-family: inherit;
+			transition: all 0.2s ease;
+		}
+		
+		#password-form button:hover {
+			background: var(--border);
+			color: var(--bg);
+		}
+		
+		.error-message {
+			color: #ff6b6b;
+			margin-top: 10px;
+		}
+		
+		.protected-content {
+			animation: fadeIn 0.5s ease-in;
+		}
+		
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+	</style>
+
+	<script>
+		// Set your password here
+		const CORRECT_PASSWORD = "alcop2025"; // Change this to your desired password
+		
+		document.addEventListener('DOMContentLoaded', function() {
+			const passwordForm = document.getElementById('password-form');
+			const passwordInput = document.getElementById('password-input');
+			const errorMessage = document.getElementById('error-message');
+			const passwordProtection = document.getElementById('password-protection');
+			const protectedContent = document.getElementById('protected-content');
+			
+			// Check if user is already authenticated
+			if (sessionStorage.getItem('alcop_authenticated') === 'true') {
+				showContent();
+			}
+			
+			passwordForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				if (passwordInput.value === CORRECT_PASSWORD) {
+					// Store authentication in session storage
+					sessionStorage.setItem('alcop_authenticated', 'true');
+					showContent();
+				} else {
+					errorMessage.style.display = 'block';
+					passwordInput.value = '';
+					passwordInput.focus();
+				}
+			});
+			
+			function showContent() {
+				passwordProtection.style.display = 'none';
+				protectedContent.style.display = 'block';
+			}
+		});
+	</script>
 </Base>
 
 
