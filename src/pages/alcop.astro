@@ -20,17 +20,79 @@ import ALCOPMarkdown from "../content/alcop.md";
 
 	<div id="protected-content" class="protected-content" style="display: none;">
 		<section class="grid" aria-labelledby="about-heading">
-			<div class="block">
+			<div class="block invert">
 				<h1 id="about-heading">ALCOP Project Page</h1>
-				<h2>Media</h2>
-				<p id="about-heading"> 
-					<a href="https://www.dropbox.com/scl/fo/4yrbhdhaqj5u4sjkm6mpx/ACQTaERq4UVMX1N8fhb0QCM?rlkey=wflf9qyw5w11ggygzdlf5rto8&st=pov0x7ug&dl=0" target="_blank" rel="noopener noreferrer">
-						Links to media files
-					</a>
-				</p>
+				<p>Audio Localization and Content Optimization Project - Protected Documentation</p>
 			</div>
+			
 			<div class="block">
-				<ALCOPMarkdown />
+				<h2>Media Files</h2>
+				<a href="https://www.dropbox.com/scl/fo/4yrbhdhaqj5u4sjkm6mpx/ACQTaERq4UVMX1N8fhb0QCM?rlkey=wflf9qyw5w11ggygzdlf5rto8&st=pov0x7ug&dl=0" target="_blank" rel="noopener noreferrer">
+					Link to dropbox folder
+				</a>
+			</div>
+
+			<div 
+				class="block no-pad alcop-dropdown" 
+				role="button"
+				tabindex="0"
+				aria-expanded="false"
+				aria-controls="alcop-content"
+				aria-label="Click to expand ALCOP project documentation">
+				<h2>Project Overview</h2>
+				<div class="alcop-content" id="alcop-content">
+					<div class="markdown" aria-live="polite">
+						<ALCOPMarkdown />
+					</div>
+				</div>
+				<div class="alcop-toggle">
+					<div class="alcop-indicator" aria-hidden="true">↓</div>
+					<button 
+						class="alcop-close" 
+						aria-label="Close ALCOP documentation section">↑</button>
+				</div>
+			</div>
+
+			<div 
+				class="block no-pad solutions-dropdown" 
+				role="button"
+				tabindex="0"
+				aria-expanded="false"
+				aria-controls="solutions-content"
+				aria-label="Click to expand solutions and tools section">
+				<h2>ADR Research</h2>
+				<div class="solutions-content" id="solutions-content">
+					<div class="markdown" aria-live="polite">
+						
+					</div>
+				</div>
+				<div class="solutions-toggle">
+					<div class="solutions-indicator" aria-hidden="true">↓</div>
+					<button 
+						class="solutions-close" 
+						aria-label="Close solutions section">↑</button>
+				</div>
+			</div>
+
+			<div 
+				class="block no-pad notes-dropdown" 
+				role="button"
+				tabindex="0"
+				aria-expanded="false"
+				aria-controls="notes-content"
+				aria-label="Click to expand project notes and considerations">
+				<h2>Project Notes</h2>
+				<div class="notes-content" id="notes-content">
+					<div class="markdown" aria-live="polite">
+						
+					</div>
+				</div>
+				<div class="notes-toggle">
+					<div class="notes-indicator" aria-hidden="true">↓</div>
+					<button 
+						class="notes-close" 
+						aria-label="Close project notes section">↑</button>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -91,6 +153,342 @@ import ALCOPMarkdown from "../content/alcop.md";
 			from { opacity: 0; }
 			to { opacity: 1; }
 		}
+
+		/* ALCOP Dropdown Styling - based on gigs-dropdown */
+		.alcop-dropdown {
+			position: relative;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.alcop-dropdown:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.alcop-content {
+			max-height: 400px;
+			overflow: hidden;
+			transition: max-height 0.8s ease-in-out;
+			background: var(--bg);
+			position: relative;
+			cursor: pointer;
+		}
+
+		.alcop-dropdown.expanded .alcop-content {
+			max-height: 5000px;
+		}
+
+		.alcop-content::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 120px;
+			background: linear-gradient(to bottom, transparent, var(--bg));
+			pointer-events: none;
+			opacity: 1;
+			transition: opacity 0.8s ease-in-out;
+		}
+
+		.alcop-dropdown.expanded .alcop-content::after {
+			opacity: 0;
+		}
+
+		.alcop-toggle {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 30px;
+			height: 30px;
+			z-index: 20;
+		}
+
+		.alcop-indicator {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: var(--border);
+			font-size: 18px;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+		}
+
+		.alcop-dropdown:hover .alcop-indicator {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.alcop-dropdown.expanded .alcop-indicator {
+			opacity: 0;
+		}
+
+		.alcop-close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: none;
+			color: var(--border);
+			border: none;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+			outline: none;
+		}
+
+		.alcop-close:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.alcop-dropdown.expanded .alcop-close:hover {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.alcop-dropdown.expanded .alcop-close {
+			display: flex;
+		}
+
+		/* Solutions Dropdown Styling */
+		.solutions-dropdown {
+			position: relative;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.solutions-dropdown:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.solutions-content {
+			max-height: 400px;
+			overflow: hidden;
+			transition: max-height 0.8s ease-in-out;
+			background: var(--bg);
+			position: relative;
+			cursor: pointer;
+		}
+
+		.solutions-dropdown.expanded .solutions-content {
+			max-height: 5000px;
+		}
+
+		.solutions-content::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 120px;
+			background: linear-gradient(to bottom, transparent, var(--bg));
+			pointer-events: none;
+			opacity: 1;
+			transition: opacity 0.8s ease-in-out;
+		}
+
+		.solutions-dropdown.expanded .solutions-content::after {
+			opacity: 0;
+		}
+
+		.solutions-toggle {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 30px;
+			height: 30px;
+			z-index: 20;
+		}
+
+		.solutions-indicator {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: var(--border);
+			font-size: 18px;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+		}
+
+		.solutions-dropdown:hover .solutions-indicator {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.solutions-dropdown.expanded .solutions-indicator {
+			opacity: 0;
+		}
+
+		.solutions-close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: none;
+			color: var(--border);
+			border: none;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+			outline: none;
+		}
+
+		.solutions-close:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.solutions-dropdown.expanded .solutions-close:hover {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.solutions-dropdown.expanded .solutions-close {
+			display: flex;
+		}
+
+		/* Notes Dropdown Styling */
+		.notes-dropdown {
+			position: relative;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.notes-dropdown:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.notes-content {
+			max-height: 400px;
+			overflow: hidden;
+			transition: max-height 0.8s ease-in-out;
+			background: var(--bg);
+			position: relative;
+			cursor: pointer;
+		}
+
+		.notes-dropdown.expanded .notes-content {
+			max-height: 5000px;
+		}
+
+		.notes-content::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 120px;
+			background: linear-gradient(to bottom, transparent, var(--bg));
+			pointer-events: none;
+			opacity: 1;
+			transition: opacity 0.8s ease-in-out;
+		}
+
+		.notes-dropdown.expanded .notes-content::after {
+			opacity: 0;
+		}
+
+		.notes-toggle {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 30px;
+			height: 30px;
+			z-index: 20;
+		}
+
+		.notes-indicator {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: var(--border);
+			font-size: 18px;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+		}
+
+		.notes-dropdown:hover .notes-indicator {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.notes-dropdown.expanded .notes-indicator {
+			opacity: 0;
+		}
+
+		.notes-close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: none;
+			color: var(--border);
+			border: none;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0.6;
+			border-radius: 50%;
+			outline: none;
+		}
+
+		.notes-close:focus {
+			outline: 2px solid var(--border);
+			outline-offset: 2px;
+		}
+
+		.notes-dropdown.expanded .notes-close:hover {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.notes-dropdown.expanded .notes-close {
+			display: flex;
+		}
 	</style>
 
 	<script>
@@ -126,6 +524,94 @@ import ALCOPMarkdown from "../content/alcop.md";
 			function showContent() {
 				passwordProtection.style.display = 'none';
 				protectedContent.style.display = 'block';
+				initializeDropdowns();
+			}
+
+			// Initialize dropdown functionality
+			function initializeDropdowns() {
+				// Handle ALCOP dropdown
+				const alcopDropdown = document.querySelector('.alcop-dropdown');
+				const alcopClose = alcopDropdown?.querySelector('.alcop-close');
+				
+				if (alcopDropdown && alcopClose) {
+					alcopDropdown.addEventListener('click', (e) => {
+						if (e.target !== alcopClose) {
+							alcopDropdown.classList.add('expanded');
+							alcopDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					alcopDropdown.addEventListener('keydown', (e) => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							alcopDropdown.classList.add('expanded');
+							alcopDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					alcopClose.addEventListener('click', (e) => {
+						e.stopPropagation();
+						alcopDropdown.classList.remove('expanded');
+						alcopDropdown.setAttribute('aria-expanded', 'false');
+						alcopDropdown.focus();
+					});
+				}
+
+				// Handle Solutions dropdown
+				const solutionsDropdown = document.querySelector('.solutions-dropdown');
+				const solutionsClose = solutionsDropdown?.querySelector('.solutions-close');
+				
+				if (solutionsDropdown && solutionsClose) {
+					solutionsDropdown.addEventListener('click', (e) => {
+						if (e.target !== solutionsClose) {
+							solutionsDropdown.classList.add('expanded');
+							solutionsDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					solutionsDropdown.addEventListener('keydown', (e) => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							solutionsDropdown.classList.add('expanded');
+							solutionsDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					solutionsClose.addEventListener('click', (e) => {
+						e.stopPropagation();
+						solutionsDropdown.classList.remove('expanded');
+						solutionsDropdown.setAttribute('aria-expanded', 'false');
+						solutionsDropdown.focus();
+					});
+				}
+
+				// Handle Notes dropdown
+				const notesDropdown = document.querySelector('.notes-dropdown');
+				const notesClose = notesDropdown?.querySelector('.notes-close');
+				
+				if (notesDropdown && notesClose) {
+					notesDropdown.addEventListener('click', (e) => {
+						if (e.target !== notesClose) {
+							notesDropdown.classList.add('expanded');
+							notesDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					notesDropdown.addEventListener('keydown', (e) => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							notesDropdown.classList.add('expanded');
+							notesDropdown.setAttribute('aria-expanded', 'true');
+						}
+					});
+					
+					notesClose.addEventListener('click', (e) => {
+						e.stopPropagation();
+						notesDropdown.classList.remove('expanded');
+						notesDropdown.setAttribute('aria-expanded', 'false');
+						notesDropdown.focus();
+					});
+				}
 			}
 		});
 	</script>

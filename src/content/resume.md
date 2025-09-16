@@ -9,8 +9,9 @@
 ### Audio Engineering Experience
 | **Production**                               | **Company**                  | **Position**           | **Dates**        |
 | -------------------------------------------- | ---------------------------- | ---------------------- | ---------------- |
+| Summit Stage (First Bank)                    | NC Folk Festival 2025        | FOH Audio              | Sept '25         |
 | *Wake Forest Class of 2029 Convocation*      | Wake Forest University       | FOH Audio              | Aug '25          |
-| *Carnatic Music Arangetram*                    | Wake Forest University        | FOH Audio               | Jul '25
+| *Carnatic Music Arangetram*                  | Wake Forest University       | FOH Audio              | Jul '25          |
 | *Secrest Artist Series presents Tonality*    | Wake Forest University       | FOH Audio              | Jan '25          |
 | *Camel City Jazz 2024 Christmas Concert*     | UNCSA Performance Facilities | FOH Audio              | Dec '24          |
 | *The Dickens at SMCM Alumni Weekend*         | Sam Hill Entertainment       | FOH Audio              | Jun '24          |
@@ -40,6 +41,7 @@
 ### Sound Design Experience
 | **Production**                                  | **Company**                   | **Position**              | **Dates**         |
 | ----------------------------------------------- | ----------------------------- | ------------------------- | ----------------- |
+| *Godspell*                                      | Ujima Company, Inc.           | Consulting Sound Designer | Sep '25           |
 | *The Lab*                                       | Dose Artist Collective        | Sound Designer            | Oct '22 – May '23 |
 | *Blood Wedding*                                 | Raleigh Little Theatre        | Sound Designer            | Jan '23           |
 | *Pride & Prejudice*                             | Raleigh Little Theatre        | Sound Designer            | Oct '22           |
