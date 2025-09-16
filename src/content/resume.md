@@ -1,8 +1,8 @@
 ### Touring Experience
 | **Production**                  | **Company**           | **Position**     | **Dates**        |
 | -------------------------------- | --------------------- | ---------------- | ---------------- |
-| *Sesame Street Live! Say Hello*  | Round Room Live       | A1               | Feb '25 – Jun '25 |
-| *Blippi Live! Join the Band Tour*| Round Room Live       | A1               | Sep '24 – Dec '24 |
+| *Sesame Street Live! Say Hello*  | Round Room Live       | Head Audio       | Feb '25 – Jun '25 |
+| *Blippi Live! Join the Band Tour*| Round Room Live       | Head Audio       | Sep '24 – Dec '24 |
 | *Canvas Sky*                     | Hideaway Circus       | Interim PM       | Jul '24 – Aug '24 |
 | *Paw Patrol Live! Hero’s Unite*  | VStar Entertainment   | Head AV Tech     | Jul '23 – May '24 |
 
