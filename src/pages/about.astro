@@ -6,17 +6,99 @@ import Base from "../layouts/Base.astro";
 	<section class="grid" aria-labelledby="about-heading">
 		<div class="block invert">
 			<h1 id="about-heading">About</h1>
-			<p>Hey I'm Brennan! I'm a live sound engineer based in NYC. I have over 10 years of experience doing audio for live events - specializing in live music and theatre.</p>
 		</div>
 		<div class="block">
+			<p>Hey I'm Brennan!</p>
 			<p>
-				My expertise is in live music, theatre, and touring audio. Whether you're looking for a QLab programmer, A1, A2, draftsperson, FOH engineer, or production manager, I've got you covered.
+				I help productions and performers sound their best — whether that’s mixing a festival, running audio for a tour, or designing sound for theatre. Based in NYC, I’ve spent 10+ years making sure artists and audiences connect through great sound.
 			</p>
-			<p>
-				I am passionate about providing both performers and audiences with the best possible experience. Check out an overview of <a href="/work">my work</a>!
-			</p>
+		</div>
+		<div class="block photo-gallery">
+			<div class="photo-grid">
+				<div class="photo-item">
+					<img src="/images/Brennan-Avantis.jpg" alt="Brennan Reilly Mixing Blippi Live in Mississauga, ON" />
+				</div>
+				<div class="photo-item">
+					<img src="/images/Brennan-Lab.jpg" alt="Brennan Reilly Mixing The Lab in Winston-Salem, NC" />
+				</div>
+				<div class="photo-item">
+					<img src="/images/Brennan-M32.jpg" alt="Brennan Reilly Mixing Sesame Street Live at DPAC" />
+				</div>
+			</div>
 		</div>
 	</section>
 </Base>
+
+<style>
+	/* Photo Gallery Styling */
+	.photo-gallery {
+		text-align: center;
+		border: none !important;
+		box-shadow: none !important;
+		background: transparent !important;
+		padding: 0 !important;
+		margin: 0 0 16px 0 !important;
+	}
+	
+	.photo-gallery h3 {
+		margin-bottom: 20px;
+		font-family: "Font-Special", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	
+	.photo-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+		margin-top: 20px;
+	}
+	
+	.photo-item {
+		position: relative;
+		overflow: hidden;
+		border: 2px solid var(--border);
+		box-shadow: 4px 4px 0 0 var(--border);
+		transition: all 0.2s ease;
+	}
+	
+	.photo-item:hover {
+		transform: translateY(-2px);
+		box-shadow: 6px 6px 0 0 var(--border);
+	}
+	
+	.photo-item img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+		filter: grayscale(1);
+		transition: filter 0.3s ease;
+	}
+	
+	.photo-item:hover img {
+		filter: grayscale(0);
+	}
+	
+	/* Responsive design */
+	@media (max-width: 768px) {
+		.photo-grid {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+		
+		.photo-item img {
+			height: 250px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.photo-item img {
+			height: 200px;
+		}
+	}
+</style>
 
 

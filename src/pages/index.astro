@@ -5,31 +5,68 @@ import Home from "../layouts/Home.astro";
 <Home page="Home">
 	<div class="home-container">
 		<nav class="home-nav" role="navigation" aria-label="Main navigation">
-			<a href="/" aria-label="Go to Brennan Reilly's homepage" tabindex="0">
+			<a href="/" aria-label="Go to Brennan Reilly's homepage" tabindex="0" class="home-brand-link">
 				<div class="block invert home-brand">
 					<h1>Brennan Reilly</h1>
+					<h3>Live Sound & Design</h3>
 				</div>
 			</a>
 
-			<a href="/about" aria-label="Learn more about Brennan Reilly" tabindex="0">
+			<a href="/about" aria-label="Learn more about Brennan Reilly" tabindex="0" class="home-nav-link">
 				<div class="block home-nav-item">
 					<h3>About</h3>
 				</div>
 			</a>
 
-			<a href="/resume" aria-label="View Brennan Reilly's work and resume" tabindex="0">
+			<a href="/resume" aria-label="View Brennan Reilly's work and resume" tabindex="0" class="home-nav-link">
 				<div class="block home-nav-item">
 					<h3>My Work</h3>
 				</div>
 			</a>
 
-			<a href="/contact" aria-label="Contact Brennan Reilly" tabindex="0">
+			<a href="/contact" aria-label="Contact Brennan Reilly" tabindex="0" class="home-nav-link">
 				<div class="block home-nav-item">
 					<h3>Contact</h3>
 				</div>
 			</a>
 		</nav>
 	</div>
+	
+	<style>
+		.home-brand-link,
+		.home-nav-link {
+			text-decoration: none !important;
+		}
+		
+		.home-brand-link:hover,
+		.home-nav-link:hover {
+			text-decoration: none !important;
+		}
+		
+		/* Remove default focus outline and add custom focus styles */
+		.home-brand-link:focus,
+		.home-nav-link:focus {
+			outline: none !important;
+		}
+		
+		.home-brand-link:focus-visible,
+		.home-nav-link:focus-visible {
+			outline: none !important;
+		}
+		
+		/* Custom focus indicator - subtle border change */
+		.home-brand-link:focus .block,
+		.home-nav-link:focus .block {
+			border-color: var(--muted) !important;
+			box-shadow: 6px 6px 0 0 var(--muted) !important;
+		}
+		
+		.home-brand-link:focus-visible .block,
+		.home-nav-link:focus-visible .block {
+			border-color: var(--muted) !important;
+			box-shadow: 6px 6px 0 0 var(--muted) !important;
+		}
+	</style>
 	
 	<script>
 		// Enhanced keyboard accessibility for home navigation
