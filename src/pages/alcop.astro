@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import ALCOPMarkdown from "../content/alcop.md";
+import ADRMarkdown2 from "../content/alcop-aaf.md";
 ---
 
 <Base page="ALCOP">
@@ -60,10 +61,10 @@ import ALCOPMarkdown from "../content/alcop.md";
 				aria-expanded="false"
 				aria-controls="solutions-content"
 				aria-label="Click to expand solutions and tools section">
-				<h2>ADR Research</h2>
+				<h2>AAF Export Steps</h2>
 				<div class="solutions-content" id="solutions-content">
 					<div class="markdown" aria-live="polite">
-						
+						<ADRMarkdown2 />
 					</div>
 				</div>
 				<div class="solutions-toggle">
