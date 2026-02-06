@@ -1,6 +1,7 @@
 ### Touring Experience
 | **Production**                  | **Company**           | **Position**     | **Dates**        |
 | -------------------------------- | --------------------- | ---------------- | ---------------- |
+| *Back to the Future: The Musical*| First National Tour   | Head Audio       | Oct '25 - Current |
 | *Sesame Street Live! Say Hello*  | Round Room Live       | Head Audio       | Feb '25 – Jun '25 |
 | *Blippi Live! Join the Band Tour*| Round Room Live       | Head Audio       | Sep '24 – Dec '24 |
 | *Canvas Sky*                     | Hideaway Circus       | Interim PM       | Jul '24 – Aug '24 |
